@@ -9,7 +9,6 @@ var controller;
 function onGamepadConnected(e) {
   controller = e.gamepad;
   console.log("Gamepad connected", controller.id);
-  checkState();
 }
 
 // Run on button change
@@ -21,10 +20,6 @@ function onGamepadButtonDown(e) {
 function onGamepadButtonUp(e) {
   var button = e.button;
   console.log("Gamepad button released", button);
-  if(button === 1) {
-    $.deck('next');
-
-  }
   //buttons (on a logitech game pad):
   //0: X
   //1: A
@@ -54,6 +49,10 @@ function onGamepadButtonUp(e) {
 
 }
 
+/**
+ * zooms in / out on the page
+ * does this by just increasing all the text sizes
+ **/
 function zoomSlide(axis, val) {
   //use -moz-transform on the body
   var b = $("body");
@@ -68,12 +67,19 @@ function zoomSlide(axis, val) {
 }
 
 
+/**
+ * takes every element in .slide and increases its text size by 2
+ **/
 function increaseText() {
   $(".slide").each(function(i, item) {
     var cfs = parseInt($(item).css("font-size"));
     $(item).css("font-size", (cfs+1) + "px");
   });
 }
+
+/**
+ * does the opposite of increaseText()
+ **/
 function decreaseText() {
   $(".slide").each(function(i, item) {
     var cfs = parseInt($(item).css("font-size"));
@@ -81,12 +87,13 @@ function decreaseText() {
   });
 }
 
+/**
+ * I place a little cursor on the screen, you can use the D pad to control it
+ **/
 function controlPointer(axis, val) {
   //2 is up and down
   //1 is left & right
   var pointer = $(".pointer");
-  var pointerLeft = pointer.data("left-val");
-  var pointerRight = pointer.data("top-val");
   if(axis === 1) {
     if(val === 1) {
       pointer.animate({"left" : "+=10"}, 1);
@@ -101,13 +108,11 @@ function controlPointer(axis, val) {
     }
 
   }
-  
 }
 // Run on axis move
 function onGamepadAxisMove(e) {
   var axis = e.axis,
   value = e.value;
-
   console.log("Gamepad axis move", axis, value);
   controlPointer(axis, value);
   zoomSlide(axis, value);

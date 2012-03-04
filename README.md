@@ -15,3 +15,10 @@ enabled, which you can [find here for Mac, Win & Linux](http://people.mozilla.co
 
 - The basic code I started with is also @robhawkes's but I've since
   modified a lot of it. Credit is given in the comment of the file.
+
+##Instructions
+_to be written shortly_
+
+
+##License
+Released under the [Don't be a Dick License](http://philsturgeon.co.uk/code/dbad-license)
