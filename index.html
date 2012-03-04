@@ -9,17 +9,29 @@
     <!-- transition theme -->
     <link rel="stylesheet" href="deckjs/themes/transition/horizontal-slide.css">
 
+    <!--extra css-->
+    <style type="text/css" media="all">
+      .pointer {
+        position: absolute;
+        z-index: 100;
+        top: 10px;
+        left: 10px;
+        width: 10px;
+        height: 10px;
+        background: red;
+      }
+    </style>
+
     <!-- JS loaded in footer -->
   </head>
   <body class="deck-container">
+    <div class="pointer">&nbsp;</div>
     <section class="slide" id="title-slide">
       <h1>Slide numero uno</h1>
     </section>
     <section class="slide" id="slide-two">
       <h1>Slide numero two</h1>
     </section>
-
-
 
 
 

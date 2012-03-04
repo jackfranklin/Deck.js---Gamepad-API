@@ -9,6 +9,7 @@ var controller;
 function onGamepadConnected(e) {
   controller = e.gamepad;
   console.log("Gamepad connected", controller.id);
+  checkState();
 }
 
 // Run on button change
@@ -29,6 +30,7 @@ function onGamepadButtonUp(e) {
   //1: A
   //2: B
   //3: Y
+  //11: right analog pressed
   switch(button) {
     case 1:
       $.deck('next');
@@ -36,24 +38,54 @@ function onGamepadButtonUp(e) {
     case 2:
       $.deck('prev');
       break;
-    
     case 3:
       $("body").css("-moz-transform", "scale(2)");
       break;
     case 0:
       $("body").css("-moz-transform", "scale(1)");
       break;
+    case 11:
+      console.log($(".pointer"));
+      $(".pointer").toggle();
+      break;
 
   };
 
 }
 
+function zoomSlide() {
+
+}
+
+function controlPointer(axis, val) {
+  //4 is up and down
+  //3 is left & right
+  var pointer = $(".pointer");
+  var pointerLeft = pointer.data("left-val");
+  var pointerRight = pointer.data("top-val");
+  if(axis === 3) {
+    if(val > 0) {
+      pointer.animate({"left" : "+=2"}, 1);
+    } else {
+      pointer.animate({"left" : "-=2"}, 1);
+    }
+  } else if(axis === 4) {
+    if(val > 0) {
+      pointer.animate({"top" : "+=2"}, 1);
+    } else {
+      pointer.animate({"top" : "-=2"}, 1);
+    }
+
+  }
+  
+}
 // Run on axis move
 function onGamepadAxisMove(e) {
   var axis = e.axis,
   value = e.value;
 
   console.log("Gamepad axis move", axis, value);
+  controlPointer(axis, value);
 }
 
 // Run When a gamepad is disconnected
