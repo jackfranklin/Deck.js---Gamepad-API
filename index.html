@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deck.js &amp; GamePads</title>
+    <!-- deck js CSS -->
+    <link rel="stylesheet" href="deckjs/core/deck.core.css">
+    <!-- deck js theme -->
+    <link rel="stylesheet" href="deckjs/themes/style/web-2.0.css">
+    <!-- transition theme -->
+    <link rel="stylesheet" href="deckjs/themes/transition/horizontal-slide.css">
+
+    <!-- JS loaded in footer -->
+  </head>
+  <body class="deck-container">
+    <section class="slide" id="title-slide">
+      <h1>Slide numero uno</h1>
+    </section>
+    <section class="slide" id="slide-two">
+      <h1>Slide numero two</h1>
+    </section>
+
+
+
+
+
+    <!-- jQ & Deck.js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="deckjs/core/deck.core.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- gamepad events -->
+    <script src="gamepad.js" type="text/javascript" charset="utf-8"></script>
+
+
+    <!-- initialize deck -->
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $.deck('.slide');
+      });
+    </script>
+  </body>
+
+</html>
