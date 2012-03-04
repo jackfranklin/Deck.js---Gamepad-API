@@ -17,7 +17,22 @@ enabled, which you can [find here for Mac, Win & Linux](http://people.mozilla.co
   modified a lot of it. Credit is given in the comment of the file.
 
 ##Instructions
-_to be written shortly_
+
+_These instructions were written using a **Logitech Gamepad**. Buttons
+may differ with other controllers (an issue hopefully we can get rid of
+soon and standardise button layouts)_
+
+####Moving to Previous & Next Slides
+- previous slide: left trigger
+- next slide: right trigger
+
+####Controlling the Cursor on the page
+- DPad or left analog stick (depending on if "Mode" button is on)
+- hide the cursor by pressing the right analog stick down
+
+####Zooming In
+- move up on the right analog stick to zoom __in__
+- move down on the right analog stick to zoom __out__
 
 
 ##License
