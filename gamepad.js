@@ -60,9 +60,9 @@ function zoomSlide(axis, val) {
   //3 is up/down
   if(axis === 4) {
     if(val > 0.5) {
-      increaseText();
-    } else if(val < -0.5){
       decreaseText();
+    } else if(val < -0.5){
+      increaseText();
     }
   }
 }
