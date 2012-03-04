@@ -35,12 +35,6 @@ function onGamepadButtonUp(e) {
     case 6:
       $.deck('prev');
       break;
-    case 3:
-      $("body").css("-moz-transform", "scale(2)");
-      break;
-    case 0:
-      $("body").css("-moz-transform", "scale(1)");
-      break;
     case 11:
       $(".pointer").toggle();
       break;
@@ -54,9 +48,8 @@ function onGamepadButtonUp(e) {
  * does this by just increasing all the text sizes
  **/
 function zoomSlide(axis, val) {
-  //use -moz-transform on the body
   var b = $("body");
-  //3 is up/down
+  //4 is up/down
   if(axis === 4) {
     if(val > 0.5) {
       decreaseText();
@@ -89,6 +82,7 @@ function decreaseText() {
 
 /**
  * I place a little cursor on the screen, you can use the D pad to control it
+ * this is still VERY WIP
  **/
 function controlPointer(axis, val, pointer) {
   //2 is up and down
@@ -125,16 +119,6 @@ function onGamepadDisconnected(e) {
   console.log("Gamepad disconnected", e.controller.id);
 }
 
-// Poll gamepad state on the fly (call this inside a timeout or requestAnimationFrame)
-function checkState() {
-  for (var i = 0; i < controller.buttons.length; i++) {
-    console.log("Button state", i, controller.buttons[i]);
-  }
-
-  for (var j = 0; j < controller.axes.length; j++) {
-    console.log("Axis state", j, controller.axes[j]);
-  }
-}
 
 window.addEventListener("MozGamepadConnected", onGamepadConnected);
 window.addEventListener("MozGamepadDisconnected", onGamepadDisconnected);

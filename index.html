@@ -92,6 +92,18 @@
       <p>JavaScript doesn't provide private variables but we can emulate them.</p>
     </section>
     <section class="slide">
+      <h1>Self Invoking Anonymous Functions</h1>
+      <p>Function that we don't name and then is executed immediately.</p>
+      <p>Useful for "packaging" code.</p>
+      <pre><code>
+        (function() {
+
+
+        })();
+        //the last () makes it execute
+      </code></pre>
+    </section>
+    <section class="slide">
       <h1>Module Pattern</h1>
       <pre><code>
         var counter = (function() {
@@ -117,6 +129,75 @@
         counter.count = 4; //undefined
       </code></pre>
     </section>
+    <section class="slide">
+      <h1>Module Pattern</h1>
+      <p>Problem solved!</p>
+    </section>
+    <section class="slide">
+      <h1>Awwwww Yeah</h1>
+      <img src="http://i0.kym-cdn.com/photos/images/newsfeed/000/106/887/backpain-1292835351.jpg" alt="Aww Yeah">
+    </section>
+    <section class="slide">
+      <h1>The Observer Pattern</h1>
+      <ul>
+        <li>Also known as Pub(lish)/Sub(scribe)</li>
+        <li>Easy to do in jQuery events, or you can write your own.</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h1>I'm lazy so we'll use the jQuery version</h1>
+      <img src="http://cdn.memegenerator.net/instances/400x/15597593.jpg" alt="jQuerify all the things" />
+    </section>
+    <section class="slide">
+      <h1>The Observer Pattern</h1>
+      <ul>
+        <li>Modules are entirely event driven</li>
+        <li>No modules send data to each other, they fire events &amp; pass data with those events.</li>
+        <li>Other modules can latch on to (or subscribe) to those events.</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h1>Benefits Of the Observer Pattern</h1>
+      <ul>
+        <li>Modules don't depend on anything module to do anything other than fire events.</li>
+        <li>If an event doesn't fire, it doesn't break your entire site.</li>
+        <li>If you standardise the naming of events, it's easy to create "plug &amp; play" modules</li>
+      </ul>
+    </section>
+    <section class="slide">
+      <h1>The Observer Pattern</h1>
+      <pre><code>
+        //publishing an event
+        $(someModule).trigger('module_event_name');
+        //subscribing
+        $(someOtherModule).on('module_event_name', function() {
+          //react
+        });
+      </code></pre>
+    </section>
+    <section class="slide">
+      <h1>The Observer Pattern</h1>
+      <pre><code>
+        //publishing an event
+        $data_to_send['title'] = "Hey";
+        $(someModule).trigger('module_event_name', data_to_send);
+        //subscribing
+        $(someOtherModule).on('module_event_name', function(d) {
+          console.log(d);
+          //react
+        });
+      </code></pre>
+    </section>
+    <section class="slide">
+      <h1>A brief aside...</h1>
+      <p>In jQuery 1.7+ you should <strong>ALWAYS</strong> use the new event binding functions:</p>
+      <pre><code>
+        $(something).on("evt", function() {});
+        $(something).off("evt");
+      </code></pre>
+      <p>All the other ones (click, hover, bind, delegate, live, etc) now just link to <code>.on</code>.</p>
+    </section>
+
 
 
 
