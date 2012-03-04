@@ -30,12 +30,14 @@ function onGamepadButtonUp(e) {
   //1: A
   //2: B
   //3: Y
+  //6: LT
+  //7: RT
   //11: right analog pressed
   switch(button) {
-    case 1:
+    case 7:
       $.deck('next');
       break;
-    case 2:
+    case 6:
       $.deck('prev');
       break;
     case 3:
@@ -45,7 +47,6 @@ function onGamepadButtonUp(e) {
       $("body").css("-moz-transform", "scale(1)");
       break;
     case 11:
-      console.log($(".pointer"));
       $(".pointer").toggle();
       break;
 
@@ -53,8 +54,31 @@ function onGamepadButtonUp(e) {
 
 }
 
-function zoomSlide() {
+function zoomSlide(axis, val) {
+  //use -moz-transform on the body
+  var b = $("body");
+  //3 is up/down
+  if(axis === 3) {
+    if(val > 0.5) {
+      increaseText();
+    } else if(val < -0.5){
+      decreaseText();
+    }
+  }
+}
 
+
+function increaseText() {
+  $(".slide").each(function(i, item) {
+    var cfs = parseInt($(item).css("font-size"));
+    $(item).css("font-size", (cfs+1) + "px");
+  });
+}
+function decreaseText() {
+  $(".slide").each(function(i, item) {
+    var cfs = parseInt($(item).css("font-size"));
+    $(item).css("font-size", (cfs-1) + "px");
+  });
 }
 
 function controlPointer(axis, val) {
@@ -86,6 +110,7 @@ function onGamepadAxisMove(e) {
 
   console.log("Gamepad axis move", axis, value);
   controlPointer(axis, value);
+  zoomSlide(axis, value);
 }
 
 // Run When a gamepad is disconnected

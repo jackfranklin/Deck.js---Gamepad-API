@@ -24,7 +24,7 @@
 
     <!-- JS loaded in footer -->
   </head>
-  <body class="deck-container">
+  <body class="deck-container" style="-moz-transform: scale(1);">
     <div class="pointer">&nbsp;</div>
     <section class="slide" id="title-slide">
       <h1>Slide numero uno</h1>
@@ -46,6 +46,7 @@
     <!-- initialize deck -->
     <script type="text/javascript" charset="utf-8">
       $(function() {
+        $("body").css("-moz-transform", "scale(1)"); //avoid some bugs
         $.deck('.slide');
       });
     </script>
