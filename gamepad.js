@@ -58,22 +58,22 @@ function zoomSlide() {
 }
 
 function controlPointer(axis, val) {
-  //4 is up and down
-  //3 is left & right
+  //2 is up and down
+  //1 is left & right
   var pointer = $(".pointer");
   var pointerLeft = pointer.data("left-val");
   var pointerRight = pointer.data("top-val");
-  if(axis === 3) {
-    if(val > 0) {
-      pointer.animate({"left" : "+=2"}, 1);
-    } else {
-      pointer.animate({"left" : "-=2"}, 1);
+  if(axis === 1) {
+    if(val === 1) {
+      pointer.animate({"left" : "+=10"}, 1);
+    } else if(val === -1) {
+      pointer.animate({"left" : "-=10"}, 1);
     }
-  } else if(axis === 4) {
-    if(val > 0) {
-      pointer.animate({"top" : "+=2"}, 1);
-    } else {
-      pointer.animate({"top" : "-=2"}, 1);
+  } else if(axis === 2) {
+    if(val === 1) {
+      pointer.animate({"top" : "+=10"}, 1);
+    } else if(val === -1) {
+      pointer.animate({"top" : "-=10"}, 1);
     }
 
   }
