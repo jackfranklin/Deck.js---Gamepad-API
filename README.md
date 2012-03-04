@@ -2,6 +2,12 @@
 Right now this is pretty hacked together, this was done very late at BC
 Bournemouth. Soon I'll be collecting this up, neatening up & releasing.
 
+#Quick Start
+
+The main file is `gamepad.js`. The rest is just stuff for the actual
+talk. If you want to use a gamepad controller in your own talks, just
+grab `gamepad.js`, and use `index.html` as a reference to set up your
+own slide decks.
 
 #Deck.js + Gamepad API
 
