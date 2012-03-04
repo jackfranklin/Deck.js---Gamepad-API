@@ -10,5 +10,8 @@ stuff, such as the [Gamepad API](https://wiki.mozilla.org/GamepadAPI).
 - I ran this in a specific Firefox nightly build that has the Gamepad API
 enabled, which you can [find here for Mac, Win & Linux](http://people.mozilla.com/~tmielczarek/mouselock+gamepad/). Again, hat-tip to @robhawkes for that one.
 
+- This __has not__ been tested in any other browser than the FF nightly
+  linked above
+
 - The basic code I started with is also @robhawkes's but I've since
   modified a lot of it. Credit is given in the comment of the file.
