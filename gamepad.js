@@ -90,7 +90,7 @@ function decreaseText() {
 /**
  * I place a little cursor on the screen, you can use the D pad to control it
  **/
-function controlPointer(axis, val) {
+function controlPointer(axis, val, pointer) {
   //2 is up and down
   //1 is left & right
   var pointer = $(".pointer");
@@ -109,6 +109,8 @@ function controlPointer(axis, val) {
 
   }
 }
+
+
 // Run on axis move
 function onGamepadAxisMove(e) {
   var axis = e.axis,

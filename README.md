@@ -1,3 +1,8 @@
+#Please note:
+Right now this is pretty hacked together, this was done very late at BC
+Bournemouth. Soon I'll be collecting this up, neatening up & releasing.
+
+
 #Deck.js + Gamepad API
 
 Following on from a Barcamp Bournemouth talk from @robhawkes and with a
@@ -5,6 +10,9 @@ spare logitech gamepad available, I decided to take one of my favourite
 new things, [Deck.js](http://imakewebthings.github.com/deck.js/), a
 system for creating HTML presentations & mix it with some new cool
 stuff, such as the [Gamepad API](https://wiki.mozilla.org/GamepadAPI).
+
+All this does is call Deck.js methods, so it's easy to customise if you
+fancy it.
 
 ##Notes
 - I ran this in a specific Firefox nightly build that has the Gamepad API

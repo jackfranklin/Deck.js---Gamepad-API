@@ -12,6 +12,7 @@
     <!--extra css-->
     <style type="text/css" media="all">
       .pointer {
+        display: none;
         position: absolute;
         z-index: 100;
         top: 10px;
@@ -27,10 +28,94 @@
   <body class="deck-container" style="-moz-transform: scale(1);">
     <div class="pointer">&nbsp;</div>
     <section class="slide" id="title-slide">
-      <h1>Slide numero uno</h1>
+      <h1>JS Design Patterns</h1>
+      <ul>
+        <li>Jack Franklin</li>
+        <li><strong>Disclaimer:</strong> Slides written at 4am</li>
+      </ul>
     </section>
     <section class="slide" id="slide-two">
-      <h1>Slide numero two</h1>
+      <h1>What is a JS Design Pattern?</h1>
+      <blockquote>A pattern is a reusable solution that can be applied to commonly occurring problems in software design</blockquote>
+      <cite>Addy Osmani, <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#whatisapattern">Learning JS Design Patterns</a></cite>
+    </section>
+    <section class="slide">
+      <h1>Why?</h1>
+      <ul>
+        <li>Better organised code</li>
+        <li>More maintainable code</li>
+        <li>Seperation of functionality into independent modules - <em>reuse</em></li>
+      </ul>
+
+
+    </section>
+    <section class="slide">
+      <h1>Anti-Patterns</h1>
+      <ul>
+        <li>Code is not DRY</li>
+        <li>Pollutes the (global) namespace</li>
+        <li>Prototyping <code>Object</code></li>
+        <li>Inline JS</li>
+        <li>Tightly coupled modules</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h1>Module Pattern</h1>
+      <pre><code>
+        var counter = {
+          count = 0,
+          addCount = function() {
+            return ++count;
+          },
+          resetCount = function() {
+            count = 0;
+            return 0;
+          },
+          getCount = function() {
+            return count;
+          }
+        }
+      </code></pre>
+    </section>
+    <section class="slide">
+      <h1>Module Pattern</h1>
+      <pre><code>
+        counter.addCount() //1
+        counter.getCount() //1
+        counter.count = 4; //we don't want them to do this!
+      </code></pre>
+    </section>
+    <section class="slide">
+      <h1>Module Pattern</h1>
+      <p>How can we prevent users getting to the <code>count</code> variable directly &amp; only editing it through our methods?</p>
+      <p>JavaScript doesn't provide private variables but we can emulate them.</p>
+    </section>
+    <section class="slide">
+      <h1>Module Pattern</h1>
+      <pre><code>
+        var counter = (function() {
+          var count = 0;
+          var addCount = function() {
+            return ++count;
+          };
+          var getCount = function() {
+            return count;
+          };
+          return {
+            addCount: addCount,
+            getCount: getCount
+          };
+        })();
+      </code></pre>
+    </section>
+    <section class="slide">
+      <h1>Module Pattern</h1>
+      <pre><code>
+        counter.addCount(); //1
+        counter.getCount(); //1
+        counter.count = 4; //undefined
+      </code></pre>
     </section>
 
 
@@ -46,7 +131,6 @@
     <!-- initialize deck -->
     <script type="text/javascript" charset="utf-8">
       $(function() {
-        $("body").css("-moz-transform", "scale(1)"); //avoid some bugs
         $.deck('.slide');
       });
     </script>
