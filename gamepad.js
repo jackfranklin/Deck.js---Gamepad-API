@@ -58,7 +58,7 @@ function zoomSlide(axis, val) {
   //use -moz-transform on the body
   var b = $("body");
   //3 is up/down
-  if(axis === 3) {
+  if(axis === 4) {
     if(val > 0.5) {
       increaseText();
     } else if(val < -0.5){
